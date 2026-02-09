@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Aron C Anand - Software Engineer specializing in AI/ML and Cloud Technologies">
     <title>Aron C Anand | Software Engineer - AI/ML</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Three.js for Neural Network -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -31,33 +39,52 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Neural Network Canvas -->
+        <canvas id="neural-canvas"></canvas>
+
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    Hi, I'm <span class="gradient-text">Aron C Anand</span>
-                </h1>
-                <h2 class="hero-subtitle">Software Engineer — AI/ML — Cloud Technologies</h2>
-                <p class="hero-description">
-                    Results-driven Software Engineer with 2+ years of experience in AI/ML integration,
-                    microservices architecture, and scalable system design.
-                </p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+            <div class="hero-layout">
+                <!-- Text Content -->
+                <div class="hero-text">
+                    <p class="hero-greeting">Hello, I'm</p>
+                    <h1 class="hero-title">Aron C Anand</h1>
+                    <h2 class="hero-subtitle">Software Engineer</h2>
+                    <p class="hero-tagline">AI/ML • Cloud Architecture • Microservices</p>
+                    <p class="hero-description">
+                        Building intelligent systems with 2+ years of experience in
+                        conversational AI, scalable architectures, and enterprise solutions.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                        <a href="#projects" class="btn btn-secondary">View Work</a>
+                        <button class="btn-schedule" onclick="openMeetingModal()">
+                            <i class="fas fa-calendar-alt"></i> Schedule Meeting
+                        </button>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/AronAnand" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/aroncanand" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://leetcode.com/u/Aron-droid/" target="_blank" rel="noopener noreferrer"
+                            aria-label="LeetCode">
+                            <i class="fas fa-code"></i>
+                        </a>
+                        <a href="mailto:aronc.anand3@gmail.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="social-links">
-                    <a href="https://github.com/AronAnand" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/aroncanand" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://leetcode.com/u/Aron-droid/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode">
-                        <i class="fas fa-code"></i>
-                    </a>
-                    <a href="mailto:aronc.anand3@gmail.com" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+
+                <!-- Profile Image -->
+                <div class="hero-image">
+                    <div class="image-frame">
+                        <img src="profile.png" alt="Aron C Anand" class="profile-image">
+                    </div>
                 </div>
             </div>
         </div>
@@ -121,11 +148,16 @@
                             <span class="location">Kochi, Kerala</span>
                         </div>
                         <ul class="timeline-list">
-                            <li>Engineered conversational AI agents using LLMs and microservices architecture, achieving 93% customer satisfaction rate</li>
-                            <li>Developed cloud-native applications using container technologies, reducing infrastructure costs by 27%</li>
-                            <li>Applied advanced prompt engineering on OpenAI and Meta AI platforms, enhancing response accuracy by 41%</li>
-                            <li>Built knowledge distillation pipeline using Python and ML frameworks, improving model performance by 35%</li>
-                            <li>Developed adaptive assessment system that dynamically generates questions based on user responses</li>
+                            <li>Engineered conversational AI agents using LLMs and microservices architecture, achieving
+                                93% customer satisfaction rate</li>
+                            <li>Developed cloud-native applications using container technologies, reducing
+                                infrastructure costs by 27%</li>
+                            <li>Applied advanced prompt engineering on OpenAI and Meta AI platforms, enhancing response
+                                accuracy by 41%</li>
+                            <li>Built knowledge distillation pipeline using Python and ML frameworks, improving model
+                                performance by 35%</li>
+                            <li>Developed adaptive assessment system that dynamically generates questions based on user
+                                responses</li>
                         </ul>
                     </div>
                 </div>
@@ -142,9 +174,12 @@
                         <h4>Finalist – Gen AI Exchange Hackathon</h4>
                         <p class="achievement-subtitle">World's Largest Agentic AI Hackathon, Bengaluru</p>
                         <ul>
-                            <li>Built automated multigrade classroom scheduling system for rural education using Gemini API and FastAPI</li>
-                            <li>Implemented web search APIs for dynamic data retrieval and conflict-free timetable generation</li>
-                            <li>Developed scalable backend handling complex scheduling algorithms with REST API architecture</li>
+                            <li>Built automated multigrade classroom scheduling system for rural education using Gemini
+                                API and FastAPI</li>
+                            <li>Implemented web search APIs for dynamic data retrieval and conflict-free timetable
+                                generation</li>
+                            <li>Developed scalable backend handling complex scheduling algorithms with REST API
+                                architecture</li>
                         </ul>
                     </div>
                 </div>
@@ -320,7 +355,8 @@
                     <h3>Phone</h3>
                     <p>+91 759 728 2893</p>
                 </a>
-                <a href="https://linkedin.com/in/aroncanand" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <a href="https://linkedin.com/in/aroncanand" target="_blank" rel="noopener noreferrer"
+                    class="contact-card">
                     <i class="fab fa-linkedin"></i>
                     <h3>LinkedIn</h3>
                     <p>linkedin.com/in/aroncanand</p>
@@ -345,7 +381,73 @@
             </div>
         </div>
     </footer>
+    <!-- Meeting Scheduler Modal -->
+    <div id="meeting-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close">&times;</button>
+            <h2 class="modal-title">Schedule a Meeting</h2>
+            <p class="modal-subtitle">Fill in the details and I'll add it to my calendar</p>
 
+            <form id="meeting-form" class="meeting-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="guest-name">Your Name *</label>
+                        <input type="text" id="guest-name" name="guest-name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="guest-email">Your Email *</label>
+                        <input type="email" id="guest-email" name="guest-email" required placeholder="john@example.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="meeting-date">Date *</label>
+                        <input type="date" id="meeting-date" name="meeting-date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="meeting-time">Time *</label>
+                        <input type="time" id="meeting-time" name="meeting-time" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="meeting-duration">Duration *</label>
+                        <select id="meeting-duration" name="meeting-duration" required>
+                            <option value="15">15 minutes</option>
+                            <option value="30" selected>30 minutes</option>
+                            <option value="45">45 minutes</option>
+                            <option value="60">1 hour</option>
+                            <option value="90">1.5 hours</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="meeting-link">Meeting Link *</label>
+                        <input type="url" id="meeting-link" name="meeting-link" required
+                            placeholder="https://meet.google.com/xyz or Zoom link">
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="meeting-topic">Meeting Topic / Agenda</label>
+                    <textarea id="meeting-topic" name="meeting-topic" rows="3"
+                        placeholder="Brief description of what you'd like to discuss..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-calendar-plus"></i> Add to Calendar
+                    </button>
+                    <p class="form-note">This will download a calendar invite (.ics) and notify Aron via email</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="neural-network.js"></script>
+    <script src="meeting-scheduler.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
