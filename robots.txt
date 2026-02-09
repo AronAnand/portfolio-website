@@ -1,0 +1,28 @@
+# Robots.txt for Aron C Anand Portfolio
+# https://aroncanand.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://aroncanand.com/sitemap.xml
+
+# Disallow internal/development files
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Allow all crawlers to index everything
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
