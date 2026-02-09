@@ -203,8 +203,22 @@ a:hover {
     transition: width var(--transition-base);
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active {
     color: var(--text-primary);
+}
+
+.nav-resume {
+    color: var(--accent-color) !important;
+    border: 1px solid var(--accent-color);
+    padding: 0.4rem 1rem !important;
+    border-radius: 0.4rem;
+    transition: all var(--transition-base);
+}
+
+.nav-resume:hover {
+    background: var(--accent-color);
+    color: var(--bg-primary) !important;
 }
 
 .nav-link:hover::after {
@@ -1419,6 +1433,27 @@ a:hover {
 
 .btn-schedule:hover {
     background: var(--accent-color);
+    color: var(--bg-primary);
+}
+
+/* Resume Download Button */
+.btn-resume {
+    background: transparent;
+    border: 1px solid var(--highlight-color);
+    color: var(--highlight-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all var(--transition-base);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.btn-resume:hover {
+    background: var(--highlight-color);
     color: var(--bg-primary);
 }
 
